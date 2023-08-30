@@ -1,5 +1,9 @@
-<script>
-    let src = '/catjam.gif';
-</script>
+<p>This is paragraph</p>
 
-<img src={src} alt="A cat dances">
+<style>
+    p {
+        color: goldenrod;
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 2em;
+    }
+</style>
