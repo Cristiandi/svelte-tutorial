@@ -1,21 +1,17 @@
-<script>
-	let m = { x: 0, y: 0 };
-</script>
+<button on:click|once={() => alert('clicked')}>
+	Click me
+</button>
 
-<div on:pointermove={(e) => {
-	m.x = e.clientX;
-	m.y = e.clientY;
-}} >
-	The pointer is at {m.x} x {m.y}
-</div>
+<!--
+	The full list of modifiers:
 
-<style>
-	div {
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		padding: 1rem;
-	}
-</style>
+    - preventDefault — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
+    - stopPropagation — calls event.stopPropagation(), preventing the event reaching the next element
+    - passive — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+    - nonpassive — explicitly set passive: false
+    - capture — fires the handler during the capture phase instead of the bubbling phase
+    - once — remove the handler after the first time it runs
+    - self — only trigger handler if event.target is the element itself
+    - trusted — only trigger handler if event.isTrusted is true, meaning the event was triggered by a user action rather than because some JavaScript called element.dispatchEvent(...)
+
+-->
