@@ -3,3 +3,4 @@
 </script>
 
 <Nested answer={49} />
+<Nested />
