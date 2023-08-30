@@ -1,14 +1,22 @@
 <script>
-    let count = 0;
-    $: doubled = count * 2;
+	let count = 0;
 
-    function increment() {
-        count += 1;
+    $: {
+        console.log(`the count is ${count}`);
+        console.log('this will also be logged whenever count changes');
     }
+
+    $: if (count >= 10) {
+        alert('count is too high!');
+        count = 0;
+    }
+
+	function handleClick() {
+		count += 1;
+	}
 </script>
 
-<button on:click={increment}>
-    Clicked {count} {count === 1 ? 'time' : 'times'}
+<button on:click={handleClick}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
 </button>
-
-<p>{count} double is {doubled}</p>
