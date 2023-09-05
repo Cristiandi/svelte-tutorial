@@ -1,5 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	let visible = true;
 </script>
 
@@ -9,7 +9,7 @@
 </label>
 
 {#if visible}
-	<p transition:fade={{ y: 200, duration: 2000 }}>
-		Fades in and out
+	<p in:fly={{ y: 200, duration: 2000 }} out:fade>
+		Flies in, fade
 	</p>
 {/if}
