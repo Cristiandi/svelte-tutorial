@@ -1,15 +1,22 @@
 <script>
-	let html = '<p>Write some text!</p>';
+	import AudioPlayer from './AudioPlayer.svelte';
+	import { tracks } from './tracks.js';
 </script>
 
-<div bind:innerHTML={html} contenteditable />
-
-<pre>{html}</pre>
+<div class="centered">
+	{#each tracks as track}
+		<AudioPlayer {...track} />
+	{/each}
+</div>
 
 <style>
-	[contenteditable] {
-		padding: 0.5em;
-		border: 1px solid #eee;
-		border-radius: 4px;
+	.centered {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		gap: 0.5em;
+		max-width: 40em;
+		margin: 0 auto;
 	}
 </style>
