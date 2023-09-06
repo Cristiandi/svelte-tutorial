@@ -1,4 +1,5 @@
 <script>
+	import { flip } from 'svelte/animate';
     import { send, receive } from './transition.js';
 
 	export let store;
@@ -11,6 +12,7 @@
 			class:done
             in:receive={{ key: todo.id }}
             out:send={{ key: todo.id }}
+			animate:flip={{ duration: 300 }}
 		>
 			<label>
 				<input
