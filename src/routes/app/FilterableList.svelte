@@ -5,7 +5,7 @@
 	let search = '';
 
 	$: regex = search ? new RegExp(search, 'i') : null;
-	$: matches = (item) => regex ? regex.test(item[field]) : true;
+	$: matches = (item) => (regex ? regex.test(item[field]) : true);
 </script>
 
 <div class="list">
@@ -13,10 +13,12 @@
 		Filter: <input bind:value={search} />
 	</label>
 
-	<div class="header">
-		<slot name="header"/>
-	</div>
-	
+	{#if $$slots.header}
+		<div class="header">
+			<slot name="header" />
+		</div>
+	{/if}
+
 	<div class="content">
 		{#each data.filter(matches) as item}
 			<slot {item} />
